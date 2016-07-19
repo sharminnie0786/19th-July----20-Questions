@@ -9,6 +9,40 @@
 #include <iostream>
 using namespace std;
 
+
+int main(){
+    srand(time(0));
+    const int row = 3;
+    const int col = 3;
+    int arr[row][col];
+    for (int i  = 0; i < row; i++) {
+        for (int j = 0; j<col; j++) {
+            arr[i][j] = rand()%40;
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    int prevColSum = 0,colSum = 0,colNum = 0;
+    for (int i = 0; i < col; i++) {
+        colSum = 0;
+        for (int j = 0; j < row; j++) {
+            colSum += arr[j][i];
+        }
+        if (colSum > prevColSum) {
+            prevColSum = colSum;
+            colNum = i;
+        }
+    }
+    cout << "Column number " << colNum << " has the largest sum : " << prevColSum << endl;
+    return 0;
+}
+
+
+
+
+
+
+
 int main() {
     int arr[10][10];
     
